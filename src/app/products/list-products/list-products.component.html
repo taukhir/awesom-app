@@ -1,0 +1,50 @@
+<h1>Products List</h1>
+
+<label>Search product : </label>
+<input type="search" placeholder="search" [(ngModel)]="searchProduct">
+
+<p [hidden]="!searchProduct">
+    search results for {{searchProduct}}
+</p>
+<br>
+<hr>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of data | filter : searchProduct; index as i; even as even ; odd as odd" [ngClass]="{oddClass:odd,evnClass:even}">
+            <td>{{product.id}}</td>
+            <td>{{product.name | titlecase}}</td>
+            <td>{{product.price | currency : 'Rs.'}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.imageUrl}}</td>
+            <td>
+                <button class="editbtn" (click)="editProduct(product)" >Edit</button><br>
+                <button class="deletebtn" (click)="deleteProduct(product)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type = "input" placeholder="name" [(ngModel)]="nProduct.name"></td>
+            <td><input type = "input" placeholder="price" [(ngModel)]="nProduct.price"></td>
+            <td><input type = "input" placeholder="description" [(ngModel)]="nProduct.description"></td>
+            <td><input type = "input" placeholder="imageUrl" [(ngModel)]="nProduct.imageUrl"></td>
+            <td><input type = "button" value = "submit" (click)="saveProduct()"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<br><br><hr>
+<app-edit-product *ngIf="selectedProduct" [eProduct]="selectedProduct" (saveEvent)="saveProdutHandler($event)" (cancelledEvent)="cancelledEventHandler($event)"></app-edit-product>
+
+
+

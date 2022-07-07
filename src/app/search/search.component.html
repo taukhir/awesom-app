@@ -1,0 +1,49 @@
+<div [formGroup]="searchFormGroup">
+  <div class="mb-3">
+    <label for="limit" class="form-label">limit</label>
+    <input
+      type="number"
+      class="form-control"
+      id="limit"
+      placeholder="Limit On Search"
+      formContorlName="limit"
+      autocomplete="off"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="search" class="form-label">Search</label>
+    <input
+      type="search"
+      class="form-control"
+      id="search"
+      placeholder="Search On Wikipidea"
+      formControlName="searchCtrl"
+      autocomplete="off"
+    />
+  </div>
+  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+</div>
+<br />
+<hr />
+<table [hidden]="searchedData == null" class="container table table-striped table-hover">
+  <thead>
+    <tr>
+      <td scope="col">Index</td>
+      <td scope="col">Search Result</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of searchedData; index as i">
+      <td>{{ i }}</td>
+      <td>{{ data }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Subscribing in template using pipe [async]-->
+<!-- <div>
+    <div *ngFor = "let item of results$ | async">
+        <p>{{item}}</p>      
+    </div>
+</div> -->

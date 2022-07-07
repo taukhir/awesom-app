@@ -1,0 +1,19 @@
+<div class="alert alert-warning" *ngIf="cart.length === 0">
+  No items in the Cart
+</div>
+
+<div class="card" *ngFor="let item of cart">
+  <div class="card-header bg-success">
+    {{ item.product.name }}
+  </div>
+  <div class="card-header">
+    <p>Description: {{ item.product.description }}</p>
+    <p>Price: {{ item.product.price }}</p>
+  </div>
+  <div class="card-footer">
+    <p>Quantity: {{ item.quantity }}</p>
+    <!-- <button class="btn btn-danger" (click)="remove(item.product)">
+      Remove
+    </button> -->
+  </div>
+</div>

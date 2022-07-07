@@ -1,0 +1,46 @@
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: greenyellow;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.evnClass {
+  background-color: aquamarine;
+}
+
+.oddClass {
+  background-color: lightskyblue;
+}
+
+input[type=button],
+.editbtn,
+.deletebtn {
+  /* position: absolute; */
+  top: 50%;
+  background-color: #0a0a23;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 20px;
+  min-width: 120px;
+
+}
+
+
+.editbtn {
+  background-color: blue;
+}
+
+.deletebtn {
+  background-color: lightcoral;
+}

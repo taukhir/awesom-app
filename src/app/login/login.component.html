@@ -1,0 +1,18 @@
+<div class="alert alert-warning" *ngIf="msg">{{msg}}</div>
+<form class="container"  [formGroup]="formGroup">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example1">UserName</label>
+    <input type="input" id="form2Example1" class="form-control" name="name" formControlName="name">
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example2">Password</label>
+    <input type="password" id="form2Example2" class="form-control" name="pwd" formControlName="pwd"/>
+  </div>
+
+  <!-- Submit button -->
+  <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">Login</button>
+
+</form>

@@ -1,0 +1,41 @@
+<div>
+    <h2>Data Binding</h2>
+
+    <input type="checkbox" [(ngModel)]="isPanelVisible">
+    <!--
+        or
+        <input type = "checkbox" [checked]="isPanelVisible" (change)="isPanelVisible=$event.target.value">
+    -->
+
+    <div [hidden] = "!isPanelVisible">
+
+            name : {{name}} 
+            count : {{count}}
+
+    </div>
+
+    <!--string intrerpolation [expensive operation] -->
+    <input type ="input" placeholder = "{{name}}" value ="{{count}}">
+
+    <!-- One way :Data binding
+        change($event) -> data canbe passed back to component ($event.target.value)
+
+        Inputs from component to view we use [] brackets  & 
+        For the events we use () brackets usually events which passes data from view to component
+    -->
+    <input type = "number" [placeholder] = name [value] = count (change) = "change($event)">  
+
+    <input type = "button" value = "Increment" (click) = "inc($event)">
+
+
+    <!--  Two way binding  -->
+    <input type = "value" [(ngModel)] = "name" [ngModelOptions]="{updateOn : 'change'}"  placeholder= "name"> 
+
+
+    <!-- update using input event -->
+    <input type = "number" [value]="count" placeholder = "count" (input)="count=$any($event).target.value">
+
+
+
+</div>
+

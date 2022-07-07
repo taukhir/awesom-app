@@ -1,0 +1,32 @@
+<br><br>
+<hr>
+<h2>edit-product</h2>
+
+<!-- implicitly formsgroup is createed when we use tempplated forms or FormsModule-->
+<form #productFormGroup="ngForm">
+    <!--for every input form control is created
+        there are two conditions 
+        1. ngModel to be used
+        2. every input must have name attribute and must have unique name
+    -->
+    <label>Product Name</label><br>
+    <input type ="input" placeholder="Product name" [(ngModel)] = "temp.name"name="productName" #nameCtrl="ngModel" required pattern="([a-zA-Z0-9_]{1,}[ ]{0,}){0,}">
+    <span *ngIf="nameCtrl.hasError('pattern')" [ngStyle]="{color:'red'}">Incorrect Format</span>
+    <span *ngIf="nameCtrl.hasError('required')" [ngStyle]="{color:'red'}">Name Required</span>
+    <br>
+    <label>Product Price</label><br>
+    <input type ="number" placeholder="Product price" [(ngModel)] = "temp.price" name="productPrice" required minlength="100">
+    <br>
+    <label>Product Description</label><br>
+    <input type ="input" placeholder="Product description" [(ngModel)] = "temp.description" name="productDesc">
+    <br>
+    <label>Product ImageUrl</label><br>
+    <input type ="input" placeholder="Product image" [(ngModel)] = "temp.imageUrl" name="productImageUrl">
+    <br>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save()"  [disabled]="productFormGroup.invalid || productFormGroup.pristine">Save</button>
+
+</form>
+
+
+
