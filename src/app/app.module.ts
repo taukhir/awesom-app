@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './auth-guard.service';
+import { authReducer } from './ngrx-store/auth-reducer';
 
 
 const routes: Routes = [
@@ -45,7 +46,7 @@ const routes: Routes = [
     ProductsModule,
     GadgetsModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({auth : authReducer}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ReactiveFormsModule,
     HttpClientModule
