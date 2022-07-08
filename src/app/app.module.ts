@@ -12,13 +12,16 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { RouterNotFoundComponent } from './router-not-found/router-not-found.component';
 import { GadgetsModule } from './gadgets/gadgets.module';
 import { SearchComponent } from './search/search.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './auth-guard.service';
 import { authReducer } from './ngrx-store/auth-reducer';
+import { TokenInterceptorService } from './service/token-interceptor.service';
+import { RegisterComponent } from './register/register.component';
+import { SharedModuleModule } from './shared-module/shared-module.module';
 
 
 const routes: Routes = [
@@ -27,6 +30,7 @@ const routes: Routes = [
   { path: 'products/list-products', component: ListProductsComponent },
   { path: 'search', component: SearchComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo:"/home", pathMatch:"full"},
   { path: '**', component: RouterNotFoundComponent },
 ];
@@ -39,6 +43,7 @@ const routes: Routes = [
     RouterNotFoundComponent,
     SearchComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +54,10 @@ const routes: Routes = [
     StoreModule.forRoot({auth : authReducer}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModuleModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

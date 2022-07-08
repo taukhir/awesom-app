@@ -15,5 +15,12 @@ const initState : AuthState = {
 }
 
 export const authReducer = (currentState=initState,action:any) =>{
+
+    if(action.type == "SET_AUTH"){
+        return {
+             ...action.payload
+        }
+    }
+
     return currentState;
 }
