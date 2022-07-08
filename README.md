@@ -28,28 +28,28 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## References
 
-Angular : https://angular.io/api
-Typescript : https://www.typescriptlang.org/docs/handbook/intro.html
-Reactivex / rxJs : https://reactivex.io/documentation/observable.html 
-ngRx / redux : https://ngrx.io/guide/store/walkthrough
-Bootstrap 5 : https://getbootstrap.com/docs/5.0/forms/overview/
-Angular ag grid : https://www.ag-grid.com/angular-data-grid/getting-started/
-Angular material : https://material.angular.io/
-Prime Ng : https://www.primefaces.org/primeng/setup
+1. Angular : https://angular.io/api
+2. Typescript : https://www.typescriptlang.org/docs/handbook/intro.html
+3. Reactivex / rxJs : https://reactivex.io/documentation/observable.html 
+4. ngRx / redux : https://ngrx.io/guide/store/walkthrough
+5. Bootstrap 5 : https://getbootstrap.com/docs/5.0/forms/overview/
+6. Angular ag grid : https://www.ag-grid.com/angular-data-grid/getting-started/
+7. Angular material : https://material.angular.io/
+8. Prime Ng : https://www.primefaces.org/primeng/setup
 
 
 ## Chrome Extensions
 
-Redux Dev Tools
-Angular Dev Tools
+1. Redux Dev Tools
+2. Angular Dev Tools
 
 ## command to build 
 
-ng build
-npm install serve -g [not required if already insalled]
-cd dist
-cd awesome app
-serve .
+1. ng build
+2. npm install serve -g [not required if already insalled]
+3. cd dist
+4. cd awesome app
+5. serve .
 
 
 ng build --source-map-true  [to be able to debug in browser]
