@@ -53,6 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ng build --source-map-true  [to be able to debug in browser]
+ng build --output-hashing=all [no caching on clients machine]
 
 ## references
 
